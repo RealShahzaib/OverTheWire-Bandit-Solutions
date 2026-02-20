@@ -1,175 +1,119 @@
-📌 Overview
-
+##Overview
 This repository contains my personal solutions and learning notes for the Bandit wargame by OverTheWire.
 The goal of this project is not just to solve challenges, but to strengthen my Linux fundamentals, enumeration skills, and problem-solving mindset for cybersecurity and CTF environments.
-
 I completed these levels as part of my hands-on cybersecurity learning journey while building a strong foundation in Linux and security concepts.
 
-🚀 Level 0 → Level 1
+##🚀 Level 0 → Level 1
 🎯 Goal
-
 Log in to the Bandit server using SSH.
 
 🔍 Approach
-
 This level introduced me to SSH (Secure Shell) and how remote login works in real-world environments.
 I connected to the server using the provided credentials:
 
 Username: bandit0
-
 Password: bandit0
 
 🧠 What I Learned
-
 What SSH is and why it is used
-
 How to securely log into a remote machine
-
 Basic interaction with a remote Linux environment
-
 This level really intrigued me because it felt like accessing an actual remote system rather than just solving a puzzle.
 
-📂 Level 1 → Level 2
-🎯 Goal
 
+##📂 Level 1 → Level 2
+🎯 Goal
 Find the password stored in a file named readme in the home directory.
 
 🔍 Approach
-
 After logging in, I used basic Linux commands:
-
 ls
 cat readme
-
 The password was directly inside the readme file.
 
 🧠 What I Learned
-
 Basic file navigation in Linux
-
 Using ls to list files
-
 Using cat to read file contents
 
-📁 Level 2 → Level 3
+##📁 Level 2 → Level 3
 🎯 Goal
-
 The password was stored in a file named -.
 
 🔍 Problem Faced
-
 When I tried:
-
 cat -
-
 It gave an error because the terminal interpreted - as a special argument instead of a filename.
 
 🔍 Solution
-
 I learned that adding ./ forces the terminal to treat it as a file:
-
 cat ./-
+
 🧠 What I Learned
-
 How Linux handles special characters in filenames
-
 Difference between command arguments and file paths
 
-🧾 Level 3 → Level 4
+##🧾 Level 3 → Level 4
 🎯 Goal
-
 The password was in a file with spaces and special characters in its name.
 
 🔍 Problem Faced
-
 Even with ./, the terminal could not recognize the file properly due to spaces in the filename.
 
 🔍 Solution
-
 I used quotation marks to treat the filename as a single string:
-
 cat "./file name with spaces"
+
 🧠 What I Learned
-
 Handling filenames with spaces
-
 Proper use of quotation marks in Linux
-
 Importance of precise command syntax
 
-🔎 Level 4 → Level 5
+##🔎 Level 4 → Level 5
 🎯 Goal
-
 Find the password inside the inhere directory where only one file was human-readable.
 
 🔍 Initial Approach
-
 I first used:
-
 ls -lh
-
 to inspect file sizes and details manually.
 
 ⚡ Optimized Approach
-
 To be more efficient, I used:
-
 find . -type f -exec file {} + | grep text
-
 This helped me quickly identify the only human-readable file containing the password.
 
 🧠 What I Learned
-
 Efficient file enumeration
-
 Using file to detect readable files
-
 Combining commands using pipes (|)
 
-📊 Level 5 → Level 6
+##📊 Level 5 → Level 6
 🎯 Goal
-
 Locate a file with the following conditions:
-
 Size: 1033 bytes
-
 Not executable
-
 Human-readable
 
 🔍 Approach
-
 Instead of manually checking each file, I refined my find command:
-
 find . -type f -size 1033c ! -executable -exec file {} + | grep text
-
 This allowed me to filter files based on size, permissions, and readability, leading me directly to the correct file.
 
 🧠 What I Learned
-
 Advanced usage of the find command
-
 Filtering by file size and permissions
-
 Automation instead of manual searching
 
 🧠 Key Skills Gained (Level 0–6)
-
 Linux Command Line Proficiency
-
 SSH & Remote Access
-
 File Handling & Permissions
-
 Enumeration Techniques
-
 Problem-Solving in CTF Environments
-
 Handling Special Filenames in Linux
 
 💡 Final Reflection
-
 These early Bandit levels significantly improved my Linux fundamentals and taught me the importance of enumeration, attention to detail, and understanding how the terminal interprets commands.
 Rather than blindly copying solutions, I focused on understanding the logic behind each step, which is essential for cybersecurity, penetration testing, and real-world security analysis.
-
-This repository represents my practical journey into cybersecurity through hands-on learning and CTF-based challenges.
+this repository represents my practical journey into cybersecurity through hands-on learning and CTF-based challenges.
