@@ -1,9 +1,9 @@
-##Overview
+# Overview
 This repository contains my personal solutions and learning notes for the Bandit wargame by OverTheWire.
 The goal of this project is not just to solve challenges, but to strengthen my Linux fundamentals, enumeration skills, and problem-solving mindset for cybersecurity and CTF environments.
 I completed these levels as part of my hands-on cybersecurity learning journey while building a strong foundation in Linux and security concepts.
 
-##🚀 Level 0 → Level 1
+## 🚀 Level 0 → Level 1
 🎯 Goal
 Log in to the Bandit server using SSH.
 
@@ -14,14 +14,14 @@ I connected to the server using the provided credentials:
 Username: bandit0
 Password: bandit0
 
-🧠 What I Learned
+**🧠 What I Learned**
 What SSH is and why it is used
 How to securely log into a remote machine
 Basic interaction with a remote Linux environment
 This level really intrigued me because it felt like accessing an actual remote system rather than just solving a puzzle.
 
 
-##📂 Level 1 → Level 2
+## 📂 Level 1 → Level 2
 🎯 Goal
 Find the password stored in a file named readme in the home directory.
 
@@ -31,12 +31,12 @@ ls
 cat readme
 The password was directly inside the readme file.
 
-🧠 What I Learned
+**🧠 What I Learned**
 Basic file navigation in Linux
 Using ls to list files
 Using cat to read file contents
 
-##📁 Level 2 → Level 3
+## 📁 Level 2 → Level 3
 🎯 Goal
 The password was stored in a file named -.
 
@@ -49,11 +49,11 @@ It gave an error because the terminal interpreted - as a special argument instea
 I learned that adding ./ forces the terminal to treat it as a file:
 cat ./-
 
-🧠 What I Learned
+**🧠 What I Learned**
 How Linux handles special characters in filenames
 Difference between command arguments and file paths
 
-##🧾 Level 3 → Level 4
+## 🧾 Level 3 → Level 4
 🎯 Goal
 The password was in a file with spaces and special characters in its name.
 
@@ -64,12 +64,12 @@ Even with ./, the terminal could not recognize the file properly due to spaces i
 I used quotation marks to treat the filename as a single string:
 cat "./file name with spaces"
 
-🧠 What I Learned
+**🧠 What I Learned**
 Handling filenames with spaces
 Proper use of quotation marks in Linux
 Importance of precise command syntax
 
-##🔎 Level 4 → Level 5
+## 🔎 Level 4 → Level 5
 🎯 Goal
 Find the password inside the inhere directory where only one file was human-readable.
 
@@ -83,12 +83,12 @@ To be more efficient, I used:
 find . -type f -exec file {} + | grep text
 This helped me quickly identify the only human-readable file containing the password.
 
-🧠 What I Learned
+**🧠 What I Learned**
 Efficient file enumeration
 Using file to detect readable files
 Combining commands using pipes (|)
 
-##📊 Level 5 → Level 6
+## 📊 Level 5 → Level 6
 🎯 Goal
 Locate a file with the following conditions:
 Size: 1033 bytes
@@ -100,7 +100,7 @@ Instead of manually checking each file, I refined my find command:
 find . -type f -size 1033c ! -executable -exec file {} + | grep text
 This allowed me to filter files based on size, permissions, and readability, leading me directly to the correct file.
 
-🧠 What I Learned
+**🧠 What I Learned**
 Advanced usage of the find command
 Filtering by file size and permissions
 Automation instead of manual searching
